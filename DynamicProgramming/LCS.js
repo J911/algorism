@@ -21,14 +21,14 @@ class LCS {
     }
     trace() {
         let pot = []
-        for(let i=this.C.length-1;i>0;i--){
-            for(let j=this.C[0].length-1;j>0;j--){
-                if(this.C[i][j] > this.C[i-1][j-1]){
-                    i--
-                    pot.push(this.str[0][i])
-                }
-                if(i == 0 || j == 0) break;
+        let i = this.str[0].length
+        let j = this.str[1].length
+        while(i != 0 && j != 0) {
+            if(this.C[i][j] > this.C[i-1][j-1]){
+                i--
+                pot.push(this.str[1][j-1])
             }
+            j--
         }
         console.log(pot.reverse())
     }
